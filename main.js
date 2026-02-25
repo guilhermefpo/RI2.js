@@ -46,7 +46,7 @@ class Cliente {
   }
   get emailMinusculo() {
     return this._email.toLowerCase();
-  }
+  } // Black Beatles - Rea Stremmurd
 
   get ruaMaiusculo() {
     return this._endereco.rua.toUpperCase();
