@@ -20,6 +20,13 @@ class Cliente {
     this._telefoneCelular = novoTelefone;
   }
 
+  get email() {
+    return this._email;
+  }
+  set email(novoEmail) {
+    this._email = novoEmail;
+  }
+
   get endereco() {
     return this._endereco;
   }
@@ -27,11 +34,39 @@ class Cliente {
     this._endereco = novoEndereco;
   }
 
-  get email() {
-    return this._email;
+  get nomeMaiusculo() {
+    return this._nome.toUpperCase();
   }
-  set email(novoEmail) {
-    this._email = novoEmail;
+  get nomeMinusculo() {
+    return this._nome.toLowerCase();
+  }
+
+  get emailMaiusculo() {
+    return this._email.toUpperCase();
+  }
+  get emailMinusculo() {
+    return this._email.toLowerCase();
+  }
+
+  get ruaMaiusculo() {
+    return this._endereco.rua.toUpperCase();
+  }
+  get ruaMinusculo() {
+    return this._endereco.rua.toLowerCase();
+  }
+
+  get cidadeMaiusculo() {
+    return this._endereco.cidade.toUpperCase();
+  }
+  get cidadeMinusculo() {
+    return this._endereco.cidade.toLowerCase();
+  }
+
+  get estadoMaiusculo() {
+    return this._endereco.estado.toUpperCase();
+  }
+  get estadoMinusculo() {
+    return this._endereco.estado.toLowerCase();
   }
 
   get infoFormatada() {
@@ -87,4 +122,13 @@ const clientes = [
   ),
 ];
 
+function ordenarClientesPorNome(clientesArray) {
+  return [...clientesArray].sort((a, b) => a.nome.localeCompare(b.nome));
+}
+
+console.log("=== Clientes Originais ===");
 clientes.forEach((cliente) => console.log(cliente.infoFormatada));
+
+const clientesOrdenados = ordenarClientesPorNome(clientes);
+console.log("=== Clientes Ordenados por Nome ===");
+clientesOrdenados.forEach((cliente) => console.log(cliente.infoFormatada));
